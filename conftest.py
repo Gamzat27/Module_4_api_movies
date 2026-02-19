@@ -6,6 +6,7 @@ from faker import Faker
 from constants import BASE_URL_AUTH, REGISTER_ENDPOINT
 from utils.data_generator import DataGenerator
 from custom_requester.custom_requester import CustomRequester
+from tests.api.api_manager import ApiManager
 
 faker = Faker("ru_RU")
 
@@ -51,5 +52,23 @@ def requester():
     """
     session = requests.Session()
     return CustomRequester(session=session, base_url=BASE_URL_AUTH)
+
+
+@pytest.fixture(scope="session")
+def session():
+    """
+    Фикстура для создания HTTP-сессии.
+    """
+    http_session = requests.Session()
+    yield http_session
+    http_session.close()
+
+
+@pytest.fixture(scope="session")
+def api_manager(session):
+    """
+    Фикстура для создания экземпляра ApiManager.
+    """
+    return ApiManager(session)
 
 
