@@ -1,9 +1,5 @@
 # Тесты для Auth API
 
-import pytest
-import requests
-from constants import BASE_URL_AUTH, HEADERS, REGISTER_ENDPOINT,  LOGIN_ENDPOINT
-from custom_requester.custom_requester import CustomRequester
 from tests.api.api_manager import ApiManager
 
 class TestAuthAPI:
