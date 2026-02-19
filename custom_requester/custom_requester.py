@@ -10,7 +10,7 @@ class CustomRequester:
     Кастомный реквестер для стандартизации и упрощения отправки HTTP-запросов.
     """
     base_headers = {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", # базовый словарь заголовков
         "Accept": "application/json"
     }
 
@@ -20,11 +20,11 @@ class CustomRequester:
         :param session: Объект requests.Session.
         :param base_url: Базовый URL API.
         """
-        self.session = session
-        self.base_url = base_url
-        self.headers = self.base_headers.copy() # копия базовых заголовков
-        self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(logging.INFO)
+        self.session = session # передаёте объект requests.Session() (переиспользуем соединения).
+        self.base_url = base_url # базовый URL API
+        self.headers = self.base_headers.copy() # копия базовых заголовков, чтобы не менять классную константу.
+        self.logger = logging.getLogger(__name__) # логгер для вывода информации
+        self.logger.setLevel(logging.INFO)        # (уровень INFO)
 
     def send_request(self, method, endpoint, data=None, params=None, expected_status=200, need_logging=True):
         """
@@ -45,7 +45,7 @@ class CustomRequester:
         if response.status_code != expected_status:
             raise ValueError(f"Unexpected status code: {response.status_code}. Expected: {expected_status}")
 
-        return response
+        return response # Возвращает объект response (чтобы тесты могли читать response.json() и т.д.).
 
     def _update_session_headers(self, **kwargs):
         """

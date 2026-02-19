@@ -1,11 +1,5 @@
 # Глобальные константы
 
-
-
-
-
-
-
 BASE_URL_MOVIES = "https://api.dev-cinescope.coconutqa.ru" # фильмы
 
 BASE_URL_AUTH = "https://auth.dev-cinescope.coconutqa.ru" # авторизация
