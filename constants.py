@@ -1,8 +1,10 @@
 # Глобальные константы
 
-BASE_URL_MOVIES = "https://api.dev-cinescope.coconutqa.ru" # фильмы
+BASE_URL_MOVIES = "https://api.dev-cinescope.coconutqa.ru" # базовый url для фильмов
+MOVIES_ENDPOINT = "/movies" # фильмы
+GENRES_ENDPOINT = "/genres" # жанры
 
-BASE_URL_AUTH = "https://auth.dev-cinescope.coconutqa.ru" # авторизация
+BASE_URL_AUTH = "https://auth.dev-cinescope.coconutqa.ru" # авторизация базовый url
 LOGIN_ENDPOINT = "/login"
 REGISTER_ENDPOINT = "/register"
 
@@ -15,7 +17,7 @@ HEADERS = {
 }
 
 # Креды админа (имеет все роли)
-json = {
+ADMIN_CRED = {
     "username": "api1@gmail.com",
     "password": "asdqwe123Q"
 }

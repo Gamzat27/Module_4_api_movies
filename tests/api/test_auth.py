@@ -1,5 +1,6 @@
 # Тесты для Auth API
 
+from conftest import my_test_user
 from tests.api.api_manager import ApiManager
 
 class TestAuthAPI:
